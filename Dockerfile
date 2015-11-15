@@ -1,11 +1,12 @@
-FROM alpine:latest
+FROM alpine:3.2
 
 RUN echo http://dl-4.alpinelinux.org/alpine/edge/community >> /etc/apk/repositories
 
 RUN apk update && \
     apk add -f rsync wget curl unzip \
         vim tmux git \
-        go
+        go && \
+        rm -rf /var/cache/apk/*
 
 RUN git clone -q https://github.com/kujohn/toolbox-configs.git /tmp/setup && \
     rsync -r /tmp/setup/ $HOME &&\
