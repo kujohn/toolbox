@@ -20,3 +20,5 @@ ENV GOPATH=/root/go \
     GOROOT=/usr/lib/go \
     PATH=$PATH:$GOROOT/bin:$GOPATH/bin \
     GO15VENOREXPERIMENT=1
+
+WORKDIR /root/
